@@ -10,11 +10,6 @@ RUN apt update -y \
   && apt install -y fonts-dejavu ttf-mscorefonts-installer gnupg nodejs \
   && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd --gid 1000 node \
-  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
-
-USER node
-
 ENV HOME=/home/node
 ARG APP_HOME=/home/node/srv
 WORKDIR $APP_HOME
